@@ -1,0 +1,18 @@
+{
+  "name": "nbn24-theme",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NBN24 Bootstrap theme (Bootswatch Pulse variant) for GitTaskFanOut",
+  "scripts": {
+    "build": "sass scss/nbn24.scss dist/nbn24.css --style compressed --no-source-map --quiet-deps --silence-deprecation=import --silence-deprecation=global-builtin --silence-deprecation=color-functions --silence-deprecation=if-function",
+    "build:expanded": "sass scss/nbn24.scss dist/nbn24.css --style expanded --source-map --quiet-deps --silence-deprecation=import --silence-deprecation=global-builtin --silence-deprecation=color-functions --silence-deprecation=if-function",
+    "watch": "sass scss/nbn24.scss dist/nbn24.css --watch --style expanded --source-map --quiet-deps --silence-deprecation=import --silence-deprecation=global-builtin --silence-deprecation=color-functions --silence-deprecation=if-function",
+    "deploy": "npm run build && cp dist/nbn24.css ../../data/theme.css"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.6"
+  },
+  "devDependencies": {
+    "sass": "^1.87.0"
+  }
+}

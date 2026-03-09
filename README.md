@@ -43,7 +43,7 @@ All config lives in the `data/` directory as INI files:
 | `routes.ini` | Webhook routes (managed via UI) |
 | `users.ini` | Admin user accounts (created via UI) |
 | `auth.ini` | Optional pepper for password hashing |
-| `theme.css` | Optional runtime CSS theme override |
+| `theme.css` | Optional theme CSS (replaces Bootstrap entirely) |
 
 ### 🔑 Environment Variables
 
@@ -93,13 +93,50 @@ Used by the Docker Compose health check and compatible with any load balancer or
 
 ## 🎨 Theming
 
-### Build-time (SCSS)
+The app ships with stock Bootstrap and supports full theme replacement at runtime. Themes include Bootstrap itself — they're not layered on top — so every aspect of the UI can be customised.
 
-Override Bootstrap variables in `webapp/src/styles/_variables.scss` and add custom styles in `_custom.scss`. Rebuild to apply.
+### How It Works
 
-### Runtime (CSS)
+The endpoint `/api/theme.css` serves the active theme CSS:
 
-Drop a compiled CSS file (e.g. from [Bootswatch](https://bootswatch.com)) into `data/theme.css`. It loads on top of the built-in theme — no rebuild needed. Remove the file to revert.
+- **Custom theme present** (`data/theme.css`) — serves your theme
+- **No custom theme** — falls back to stock `bootstrap.min.css`
+
+The app loads this single CSS endpoint and has no build-time Bootstrap dependency. Dark/light mode is supported via Bootstrap 5's `data-bs-theme` attribute, with a theme toggle in the navbar that persists the preference in a cookie.
+
+### Using a Theme
+
+Drop a compiled CSS file into `data/theme.css` and reload. Remove the file to revert to stock Bootstrap.
+
+```bash
+cp themes/nbn24/dist/nbn24.css data/theme.css   # activate
+rm data/theme.css                                 # revert
+```
+
+### Included Theme: NBN24
+
+The `themes/nbn24/` directory contains an example theme based on the Bootswatch "Pulse" colour scheme — purple primary, no rounded corners, custom component styling. See [themes/nbn24/README.md](themes/nbn24/README.md) for build instructions.
+
+### Creating Your Own Theme
+
+A theme is a standalone project that compiles a full Bootstrap 5 CSS bundle. Use `themes/nbn24/` as a starting point:
+
+```bash
+cp -r themes/nbn24 themes/mytheme
+cd themes/mytheme
+```
+
+1. Edit `scss/_variables.scss` — override any [Bootstrap SCSS variable](https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss)
+2. Edit `scss/_bootswatch.scss` — add component-level style overrides (applied after Bootstrap)
+3. Rename the entry point if you like (`scss/mytheme.scss`) and update `package.json` scripts accordingly
+4. Build and deploy:
+
+```bash
+npm install && npm run build
+cp dist/mytheme.css ../../data/theme.css
+```
+
+Themes are **out-of-tree** — they have their own `package.json`, `node_modules`, and build step. They don't depend on the webapp's build system and don't require Docker. Any tool that produces a CSS file (Sass, PostCSS, plain CSS, a Bootswatch download) will work, as long as it includes Bootstrap.
 
 ## 🔐 Security
 
@@ -118,18 +155,25 @@ GitTaskFanOut/
 ├── data/                    # Config directory (gitignored)
 │   ├── routes.ini
 │   ├── users.ini
-│   └── auth.ini
+│   ├── auth.ini
+│   └── theme.css            # Optional: custom theme (replaces Bootstrap)
+├── themes/                  # Out-of-tree theme projects
+│   └── nbn24/               # Example theme (Bootswatch Pulse)
+│       ├── package.json
+│       └── scss/
 └── webapp/                  # Next.js app
     ├── Dockerfile
     ├── server.ts            # Custom server with morgan logging
     └── src/
+        ├── components/      # ThemeDropdown (dark/light/auto toggle)
         ├── lib/             # Config, auth, relay, session, rate limiting
-        ├── styles/          # SCSS theme files
+        ├── styles/          # App-specific CSS (no Bootstrap — served at runtime)
         └── pages/
+            ├── _document.tsx # FOUC-free theme initialisation
             ├── index.tsx    # React-Bootstrap UI
             └── api/
                 ├── health.ts
-                ├── theme.css.ts
+                ├── theme.css.ts  # Serves custom theme or stock Bootstrap
                 ├── auth/    # login, logout, register, change-password, status
                 ├── hooks/   # [...slug].ts — webhook receiver
                 └── routes/  # CRUD + ping + duplicate
