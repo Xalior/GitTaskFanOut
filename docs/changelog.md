@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## 🏷️ v0.2.1 — 2026-03-09
+
+### 🐛 Fixes
+
+- 🐳 **Docker data volume mount** — fixed volume mount path (`/data` → `/app/data`) to match the app's path resolution
+- 🐳 **Container permissions** — Dockerfile now creates `/app/data` owned by `appuser` so the app works without a pre-existing volume mount
+- 🐳 **Healthcheck port** — now uses `$PORT` variable instead of hardcoded `6175`
+
+### 🔧 Changes
+
+- 🤖 **CI/CD** — added GitHub Actions workflow to build and push Docker images to GHCR on version tags
+
+---
+
 ## 🏷️ v0.2.0 — 2026-03-09
 
 ### ✨ Features
