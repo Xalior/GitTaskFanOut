@@ -4,7 +4,7 @@ import path from "path";
 
 const startedAt = new Date().toISOString();
 
-let version = "0.1.0";
+let version = "0.1.1";
 try {
   const pkg = JSON.parse(
     fs.readFileSync(path.resolve(process.cwd(), "package.json"), "utf-8")

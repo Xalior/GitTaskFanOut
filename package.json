@@ -1,6 +1,6 @@
 {
   "name": "git-task-fanout",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A lightweight, self-hosted webhook router that fans out incoming Git webhooks to multiple targets in parallel",
   "author": "D. Rimron-Soutter <darran@xalior.com>",
   "license": "LGPL-3.0-only",
