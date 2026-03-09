@@ -1,0 +1,112 @@
+// ── Custom Styles ───────────────────────────────────────────
+
+// ── Landing Page ────────────────────────────────────────────
+
+.landing-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+
+.landing-hero-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.landing-tagline {
+  font-size: 1.25rem;
+  color: var(--bs-secondary-color);
+  max-width: 540px;
+}
+
+.landing-logo {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+
+  @media (min-width: 768px) {
+    font-size: 4.5rem;
+  }
+}
+
+.landing-accent {
+  background: linear-gradient(135deg, #0d6efd, #6f42c1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.landing-feature-card {
+  background: var(--bs-tertiary-bg);
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  height: 100%;
+  transition: background 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    background: var(--bs-secondary-bg);
+    border-color: var(--bs-border-color-translucent);
+  }
+}
+
+.landing-feature-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.landing-diagram {
+  background: var(--bs-tertiary-bg);
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  overflow-x: auto;
+}
+
+.landing-footer {
+  border-top: 1px solid var(--bs-border-color);
+  padding: 1.5rem 0;
+  color: var(--bs-secondary-color);
+  font-size: 0.85rem;
+}
+
+.landing-login-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.landing-login-card {
+  animation: slideUp 0.25s ease;
+  width: 100%;
+  max-width: 440px;
+  margin: 1rem;
+}

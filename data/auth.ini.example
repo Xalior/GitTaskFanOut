@@ -1,0 +1,15 @@
+[_meta]
+; Pepper appended to passwords before bcrypt hashing.
+; Can also be set via AUTH_PEPPER environment variable (takes priority).
+pepper = change-this-to-a-random-string
+
+[smtp]
+; SMTP connection URL for password reset emails.
+; Can also be set via SMTP_URL environment variable (takes priority).
+; Examples:
+;   smtp://user:pass@smtp.example.com:587
+;   smtps://user:pass@smtp.example.com:465
+url = smtp://user:pass@smtp.example.com:587
+; From address for outgoing emails.
+; Can also be set via SMTP_FROM environment variable (takes priority).
+from = noreply@example.com

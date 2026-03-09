@@ -1,0 +1,6 @@
+[abc123def456abcd]
+name = my-repo
+targets = https://ci.internal/webhook,https://chat.internal/git-notify
+active = true
+secret = my-webhook-secret
+createdAt = 2026-01-01T00:00:00.000Z

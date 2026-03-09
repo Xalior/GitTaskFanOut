@@ -1,0 +1,8 @@
+// 1. Your variable overrides (before Bootstrap)
+@import "variables";
+
+// 2. Bootstrap (uses your overridden variables)
+@import "bootstrap/scss/bootstrap";
+
+// 3. Your custom styles (after Bootstrap, can use its mixins/vars)
+@import "custom";

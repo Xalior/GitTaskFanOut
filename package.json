@@ -1,0 +1,35 @@
+{
+  "name": "git-task-fanout",
+  "version": "0.1.0",
+  "description": "A lightweight, self-hosted webhook router that fans out incoming Git webhooks to multiple targets in parallel",
+  "author": "D. Rimron-Soutter <darran@xalior.com>",
+  "license": "LGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Xalior/GitTaskFanOut.git"
+  },
+  "homepage": "https://github.com/Xalior/GitTaskFanOut",
+  "bugs": {
+    "url": "https://github.com/Xalior/GitTaskFanOut/issues"
+  },
+  "keywords": [
+    "webhook",
+    "fanout",
+    "git",
+    "github",
+    "gitea",
+    "gitlab",
+    "router",
+    "self-hosted"
+  ],
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter webapp dev",
+    "build": "pnpm --filter webapp build",
+    "start": "pnpm --filter webapp start"
+  }
+}

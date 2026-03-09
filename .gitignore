@@ -1,0 +1,9 @@
+node_modules
+.next
+dist
+*.tsbuildinfo
+
+# Config data (keep examples, ignore actual config)
+data/routes.ini
+data/users.ini
+data/auth.ini
