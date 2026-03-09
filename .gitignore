@@ -7,3 +7,4 @@ dist
 data/routes.ini
 data/users.ini
 data/auth.ini
+.idea
