@@ -4,7 +4,7 @@ services:
       context: ./webapp
       dockerfile: Dockerfile
     ports:
-      - "6175:6175"
+      - "172.17.0.1:6175:6175"
     volumes:
       - ./data:/data
     environment:
