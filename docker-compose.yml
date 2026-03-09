@@ -1,10 +1,10 @@
 services:
   webapp:
     build:
-      context: ./webapp
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: webapp/Dockerfile
     ports:
-      - "172.17.0.1:6175:6175"
+      - "${BIND_ADDRESS:-0.0.0.0}:${PORT:-6175}:${PORT:-6175}"
     volumes:
       - ./data:/data
     environment:
@@ -13,7 +13,7 @@ services:
       - AUTH_PEPPER=${AUTH_PEPPER:-}
       - SMTP_URL=${SMTP_URL:-}
       - SMTP_FROM=${SMTP_FROM:-noreply@localhost}
-      - PORT=6175
+      - PORT=${PORT:-6175}
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost:6175/api/health"]
       interval: 30s

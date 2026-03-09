@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## 🏷️ v0.1.1 — 2026-03-09
+
+### 🐛 Fixes
+
+- 🐳 **Docker build fix** — Dockerfile now builds from repo root so pnpm workspace lockfile is available
+- 📄 **`.dockerignore`** — added to exclude `node_modules`, `.next`, `data`, and `.git` from build context
+- 🔧 **Configurable bind address** — `BIND_ADDRESS` env var (defaults to `0.0.0.0`) replaces hardcoded Docker bridge IP
+- 🔧 **Configurable port in compose** — `PORT` env var now drives both the container and host port mapping
+- 📝 **`.env.example`** — added with all configurable environment variables documented
+
+---
+
 ## 🏷️ v0.1.0 — 2026-03-09
 
 ### ✨ Features

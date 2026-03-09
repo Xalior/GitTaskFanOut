@@ -53,6 +53,9 @@ All config lives in the `data/` directory as INI files:
 | `AUTH_PEPPER` | _(none)_ | Appended to passwords before bcrypt hashing |
 | `PORT` | `6175` | Server listen port |
 | `NODE_ENV` | `development` | Set to `production` for prod |
+| `BIND_ADDRESS` | `0.0.0.0` | Docker host bind IP (e.g. `172.17.0.1` to restrict to Docker bridge) |
+| `SMTP_URL` | _(none)_ | SMTP connection URL for password reset emails |
+| `SMTP_FROM` | `noreply@localhost` | From address for password reset emails |
 
 ### 🔒 Password Pepper
 
