@@ -6,7 +6,7 @@ services:
     ports:
       - "${BIND_ADDRESS:-0.0.0.0}:${PORT:-6175}:${PORT:-6175}"
     volumes:
-      - ./data:/data
+      - ./data:/app/data
     environment:
       - NODE_ENV=production
       - SESSION_SECRET=${SESSION_SECRET:-change-me-to-a-random-string-at-least-32-chars}
@@ -15,7 +15,7 @@ services:
       - SMTP_FROM=${SMTP_FROM:-noreply@localhost}
       - PORT=${PORT:-6175}
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost:6175/api/health"]
+      test: ["CMD", "wget", "-qO-", "http://localhost:${PORT:-6175}/api/health"]
       interval: 30s
       timeout: 5s
       retries: 3

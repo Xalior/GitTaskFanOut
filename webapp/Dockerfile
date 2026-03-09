@@ -28,7 +28,8 @@ COPY --from=base /app/webapp/server.ts ./webapp/
 COPY --from=base /app/webapp/tsconfig.json ./webapp/
 COPY --from=base /app/webapp/src ./webapp/src
 
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup \
+ && mkdir -p /app/data && chown appuser:appgroup /app/data
 USER appuser
 
 EXPOSE 6175
