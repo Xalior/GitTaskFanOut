@@ -15,6 +15,7 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import ThemeDropdown from "@/components/ThemeDropdown";
 
 interface Route {
   id: string;
@@ -309,10 +310,10 @@ function LandingPage({ onLogin, smtpConfigured }: { onLogin: () => void; smtpCon
   return (
     <div className="landing-hero">
       {/* Nav */}
-      <Navbar bg="dark" variant="dark" className="mb-0">
+      <Navbar bg="dark" data-bs-theme="dark" className="mb-0">
         <Container>
           <Navbar.Brand className="fw-bold">{"\u{1F500}"} Git Task Fan Out</Navbar.Brand>
-          <Nav className="ms-auto">
+          <Nav className="ms-auto align-items-center">
             <Button
               variant="outline-light"
               size="sm"
@@ -324,9 +325,10 @@ function LandingPage({ onLogin, smtpConfigured }: { onLogin: () => void; smtpCon
             >
               GitHub
             </Button>
-            <Button variant="light" size="sm" onClick={() => setShowLogin(true)}>
+            <Button variant="light" size="sm" className="me-2" onClick={() => setShowLogin(true)}>
               Sign In
             </Button>
+            <ThemeDropdown />
           </Nav>
         </Container>
       </Navbar>
@@ -357,7 +359,7 @@ function LandingPage({ onLogin, smtpConfigured }: { onLogin: () => void; smtpCon
                 >
                   Get Your Own
                 </Button>
-                <Button variant="outline-dark" size="lg" onClick={() => setShowLogin(true)}>
+                <Button variant="outline-secondary" size="lg" onClick={() => setShowLogin(true)}>
                   Sign In
                 </Button>
               </div>
@@ -388,7 +390,7 @@ function LandingPage({ onLogin, smtpConfigured }: { onLogin: () => void; smtpCon
 
                   {/* Central box */}
                   <rect x="80" y="148" width="200" height="48" rx="8" fill="rgba(13,110,253,0.08)" stroke="#0d6efd" strokeWidth="1.5" />
-                  <text x="180" y="177" fill="#212529" fontSize="14" fontWeight="700" fontFamily="inherit" textAnchor="middle">Git Task Fan Out</text>
+                  <text x="180" y="177" fill="currentColor" fontSize="14" fontWeight="700" fontFamily="inherit" textAnchor="middle">Git Task Fan Out</text>
 
                   {/* Fan-out arrow from box */}
                   <line x1="180" y1="196" x2="180" y2="220" stroke="#6c757d" strokeWidth="1.5" />
@@ -446,7 +448,7 @@ function LandingPage({ onLogin, smtpConfigured }: { onLogin: () => void; smtpCon
               no database required. LGPL-3.0 licensed.
             </p>
             <Button
-              variant="outline-dark"
+              variant="outline-secondary"
               href="https://github.com/Xalior/GitTaskFanOut"
               target="_blank"
               rel="noopener noreferrer"
@@ -807,7 +809,7 @@ function Dashboard({ email, onLogout }: { email: string; onLogout: () => void })
 
   return (
     <>
-      <Navbar bg="dark" variant="dark" className="mb-4">
+      <Navbar bg="dark" data-bs-theme="dark" className="mb-4">
         <Container>
           <Navbar.Brand>Git Task Fan Out</Navbar.Brand>
           <Nav className="ms-auto align-items-center">
@@ -822,9 +824,10 @@ function Dashboard({ email, onLogout }: { email: string; onLogout: () => void })
             >
               Password
             </Button>
-            <Button variant="outline-light" size="sm" onClick={handleLogout}>
+            <Button variant="outline-light" size="sm" className="me-2" onClick={handleLogout}>
               Sign Out
             </Button>
+            <ThemeDropdown />
           </Nav>
         </Container>
       </Navbar>

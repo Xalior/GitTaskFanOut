@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## 🏷️ v0.2.0 — 2026-03-09
+
+### ✨ Features
+
+- 🌙 **Dark/Light Mode** — theme toggle in both navbars (landing page and dashboard) with light, dark, and auto (system preference) options. Preference persisted via cookie with FOUC-free server-side initialisation
+- 🎨 **Runtime Theme System** — `/api/theme.css` now serves a complete Bootstrap CSS bundle at runtime. Custom themes in `data/theme.css` fully replace Bootstrap (not layered on top), so all Sass variables work correctly. Falls back to stock `bootstrap.min.css` when no custom theme is present
+- 🎨 **NBN24 Example Theme** — standalone Bootswatch "Pulse" theme in `themes/nbn24/` with its own build system (Sass, no Docker required). Purple primary, no rounded corners, custom component styling
+
+### 🔧 Changes
+
+- ♻️ **Bootstrap no longer compiled at build time** — the webapp's SCSS only contains app-specific styles. Bootstrap is provided entirely by the runtime theme endpoint
+- 📦 **Added `react-bootstrap-icons`** dependency for the theme toggle UI
+- 📝 **Updated documentation** — README and theme README rewritten to explain the new theming architecture and how to create custom themes out-of-tree
+
+---
+
 ## 🏷️ v0.1.1 — 2026-03-09
 
 ### 🐛 Fixes

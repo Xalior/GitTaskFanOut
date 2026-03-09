@@ -1,6 +1,6 @@
 {
   "name": "webapp",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "tsx server.ts",
@@ -17,6 +17,7 @@
     "nodemailer": "^8.0.1",
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.10",
+    "react-bootstrap-icons": "^1.11.6",
     "react-dom": "^19.1.0",
     "sass": "^1.87.0",
     "tsx": "^4.19.4",

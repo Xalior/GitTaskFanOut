@@ -1,0 +1,15 @@
+/**
+ * NBN24 Theme for GitTaskFanOut
+ *
+ * Based on the Bootswatch "Pulse" theme with custom overrides.
+ * Build with: npm run build (or: npx sass scss/nbn24.scss dist/nbn24.css --style compressed)
+ *
+ * Drop the resulting dist/nbn24.css into the data/ directory as theme.css
+ * to use as a runtime theme override.
+ */
+
+@import "variables";
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+@import "bootswatch";
