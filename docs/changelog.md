@@ -9,6 +9,11 @@ All notable changes to this project will be documented in this file.
 ### 🎨 Changes
 
 - 🎨 **Navbar uses theme primary colour** — both landing page and dashboard navbars now use `bg="primary"` instead of hardcoded `bg="dark"`, so the topbar colour matches the active theme (e.g. purple with NBN24)
+- 🎨 **Hero card** — landing page hero content (headline + diagram) wrapped in a distinct card section with subtle primary-gradient tint, matching the explorer's visual pattern
+- 🎨 **Feature card pinline borders** — lesser cards use `var(--bs-border-color)` for theme-aware pinline borders with transparent background
+- 🎨 **Theme-aware border-radius** — custom elements use `var(--bs-border-radius)` instead of hardcoded values, respecting the active theme
+- 🎨 **NBN24 zero border-radius** — theme now sets `$border-radius` variables to `0` so CSS custom properties also resolve to `0` (not just the Sass mixins)
+- 🎨 **Accent text gradient** — uses `var(--bs-primary)` / `var(--bs-secondary)` instead of hardcoded blue/purple
 
 ---
 

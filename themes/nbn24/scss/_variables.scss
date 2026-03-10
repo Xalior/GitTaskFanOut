@@ -46,6 +46,15 @@ $min-contrast-ratio:   2.1 !default;
 
 $enable-rounded: false !default;
 
+// Zero out border-radius variables so CSS custom properties are also 0
+// ($enable-rounded only affects Sass mixins, not the --bs-border-radius vars)
+$border-radius:               0 !default;
+$border-radius-sm:            0 !default;
+$border-radius-lg:            0 !default;
+$border-radius-xl:            0 !default;
+$border-radius-xxl:           0 !default;
+$border-radius-pill:          0 !default;
+
 // Body
 
 $body-color:                $gray-700 !default;

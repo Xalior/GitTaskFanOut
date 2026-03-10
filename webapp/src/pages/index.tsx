@@ -336,6 +336,7 @@ function LandingPage({ onLogin, smtpConfigured }: { onLogin: () => void; smtpCon
       {/* Hero */}
       <div className="landing-hero-content">
         <Container>
+          <section className="landing-hero-card p-4 p-lg-5 shadow-sm mb-5">
           <Row className="align-items-center g-5">
             <Col lg={6}>
               <h1 className="landing-logo mb-4">
@@ -424,6 +425,7 @@ function LandingPage({ onLogin, smtpConfigured }: { onLogin: () => void; smtpCon
               </div>
             </Col>
           </Row>
+          </section>
 
           {/* Features */}
           <Row className="g-4 mt-5">
