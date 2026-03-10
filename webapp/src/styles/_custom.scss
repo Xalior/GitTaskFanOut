@@ -16,6 +16,13 @@
   align-items: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
+
+  // Hero block: subtle primary-tinted background (matches explorer hero card style)
+  background: linear-gradient(
+    135deg,
+    rgba(var(--bs-primary-rgb), 0.08),
+    rgba(var(--bs-primary-rgb), 0.03)
+  );
 }
 
 .landing-tagline {
@@ -36,7 +43,7 @@
 }
 
 .landing-accent {
-  background: linear-gradient(135deg, #0d6efd, #6f42c1);
+  background: linear-gradient(135deg, var(--bs-primary), var(--bs-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -44,7 +51,7 @@
 
 .landing-feature-card {
   background: var(--bs-tertiary-bg);
-  border: 1px solid var(--bs-border-color);
+  border: 1px solid rgba(var(--bs-primary-rgb), 0.25);
   border-radius: 0.75rem;
   padding: 1.5rem;
   height: 100%;
@@ -52,7 +59,7 @@
 
   &:hover {
     background: var(--bs-secondary-bg);
-    border-color: var(--bs-border-color-translucent);
+    border-color: rgba(var(--bs-primary-rgb), 0.45);
   }
 }
 
@@ -68,8 +75,12 @@
 }
 
 .landing-diagram {
-  background: var(--bs-tertiary-bg);
-  border: 1px solid var(--bs-border-color);
+  background: linear-gradient(
+    135deg,
+    rgba(var(--bs-primary-rgb), 0.06),
+    rgba(var(--bs-primary-rgb), 0.02)
+  );
+  border: 1px solid rgba(var(--bs-primary-rgb), 0.25);
   border-radius: 0.75rem;
   padding: 2rem;
   overflow-x: auto;
