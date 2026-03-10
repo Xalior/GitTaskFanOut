@@ -310,7 +310,7 @@ function LandingPage({ onLogin, smtpConfigured }: { onLogin: () => void; smtpCon
   return (
     <div className="landing-hero">
       {/* Nav */}
-      <Navbar bg="dark" data-bs-theme="dark" className="mb-0">
+      <Navbar bg="primary" data-bs-theme="dark" className="mb-0">
         <Container>
           <Navbar.Brand className="fw-bold">{"\u{1F500}"} Git Task Fan Out</Navbar.Brand>
           <Nav className="ms-auto align-items-center">
@@ -809,7 +809,7 @@ function Dashboard({ email, onLogout }: { email: string; onLogout: () => void })
 
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark" className="mb-4">
+      <Navbar bg="primary" data-bs-theme="dark" className="mb-4">
         <Container>
           <Navbar.Brand>Git Task Fan Out</Navbar.Brand>
           <Nav className="ms-auto align-items-center">
